@@ -1,11 +1,11 @@
 (function(exports) {
-  class NoteList {
+  class NoteListModel {
     constructor() {
       this.notes = [];
     }
 
     addNote(text) {
-      let newNote = new Note(text);
+      let newNote = new NoteModel(text);
       this.notes.push(newNote);
     }
 
@@ -13,5 +13,5 @@
       return this.notes;
     }
   }
-  exports.NoteList = NoteList;
+  exports.NoteListModel = NoteListModel;
 })(this);
