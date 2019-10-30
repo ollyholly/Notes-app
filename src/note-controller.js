@@ -11,6 +11,7 @@
   }
   exports.NoteController = NoteController;
 })(this);
+
 // let list = new NoteListModel();
 // list.addNote("Hello World");
 // noteController = new NoteController(list);
