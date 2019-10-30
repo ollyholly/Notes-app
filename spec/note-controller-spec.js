@@ -15,7 +15,7 @@ function testRenderHTMLwithNoteController() {
   controller.renderHTML(documentDouble);
   assert.isTrue(
     documentDouble.getElementById("app").innerHTML ===
-      "<ul><li><div>Hello World</div></li></ul>"
+      "<ul><li><div>Hello World...</div></li></ul>"
   );
 }
 testRenderHTMLwithNoteController();
