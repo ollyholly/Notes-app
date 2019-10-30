@@ -1,13 +1,17 @@
 (function(exports) {
   class NoteController {
-    constructor() {}
+    constructor(NoteListModel) {
+      this.NoteListModel = NoteListModel;
+    }
 
-    howdy() {
-      var element = document.getElementById("app");
-      element.innerHTML = "howdy";
+    renderHTML(doc = document) {
+      let view = new NoteListView(this.NoteListModel);
+      doc.getElementById("app").innerHTML = view.showNotesHTML();
     }
   }
   exports.NoteController = NoteController;
 })(this);
-noteController = new NoteController();
-noteController.howdy();
+// let list = new NoteListModel();
+// list.addNote("Hello World");
+// noteController = new NoteController(list);
+// noteController.renderHTML();
