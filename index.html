@@ -7,10 +7,16 @@
     <title>Notes App</title>
   </head>
   <body>
+    <div class="form">
+      <form action="/#notes/new" method="post" id="form">
+        <input type="textarea" id="content" />
+        <input type="submit" value="Submit" id="" />
+      </form>
+    </div>
+    <div id="note"></div>
     <div id="app">
       Hello!
     </div>
-    <div id="note"></div>
 
     <script src="src/note-model.js"></script>
     <script src="src/note-list-model.js"></script>

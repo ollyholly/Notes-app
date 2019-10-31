@@ -2,15 +2,19 @@
   class NoteController {
     constructor(NoteListModel) {
       this.NoteListModel = NoteListModel;
+      this.view = new NoteListView(this.NoteListModel);
     }
 
     renderHTML(doc = document) {
-      let view = new NoteListView(this.NoteListModel);
-      doc.getElementById("app").innerHTML = view.showNotesHTML();
+      doc.getElementById("app").innerHTML = this.view.showNotesHTML();
     }
 
-    hashChangeListener() {
+    eventListeners() {
       window.addEventListener("hashchange", this.hashChange.bind(this));
+
+      let form = document.getElementById("form");
+
+      form.addEventListener("submit", this.formSubmit.bind(this));
     }
 
     hashChange() {
@@ -18,13 +22,17 @@
       let note = this.NoteListModel.getNoteByID(id);
       document.getElementById("note").innerHTML = note.getText();
     }
+
+    formSubmit() {
+      event.preventDefault();
+      let content = document.getElementById("content").value;
+      this.NoteListModel.addNote(content);
+      this.renderHTML();
+      document.getElementById("content").value = "";
+    }
   }
   exports.NoteController = NoteController;
 })(this);
 
-let list = new NoteListModel();
-list.addNote("Hello World");
-list.addNote("Another Hello World");
-noteController = new NoteController(list);
-noteController.renderHTML();
-noteController.hashChangeListener();
+noteController = new NoteController(new NoteListModel(););
+noteController.eventListeners();
