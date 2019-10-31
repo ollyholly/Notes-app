@@ -6,10 +6,12 @@
 
     showNotesHTML() {
       let noteListArray = this.NoteListModel.allNotes().map(
-        note => `<li><div>${note.getText().substring(0, 19)}...</div></li>`
+        note =>
+          `<li><div><a href="#notes/${note.id}">${note
+            .getText()
+            .substring(0, 19)}...</a></div></li>`
       );
       let html = noteListArray.join("");
-      let link = `http://localhost:8080#notes/${note.getID()}`;
       return "<ul>" + html + "</ul>";
     }
   }

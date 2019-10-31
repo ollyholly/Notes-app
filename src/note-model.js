@@ -2,7 +2,7 @@
   class NoteModel {
     constructor(text) {
       this.constructor.counter = (this.constructor.counter || 0) + 1;
-      this._id = this.constructor.counter;
+      this.id = this.constructor.counter;
       this.text = text;
     }
 
@@ -11,7 +11,7 @@
     }
 
     getID() {
-      return this._id;
+      return this.id;
     }
   }
 
