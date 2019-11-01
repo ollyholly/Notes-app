@@ -34,5 +34,5 @@
   exports.NoteController = NoteController;
 })(this);
 
-noteController = new NoteController(new NoteListModel(););
+noteController = new NoteController(new NoteListModel());
 noteController.eventListeners();
